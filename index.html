@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content='width=device-width, initial-scale=1.0'>
+    <title>Charan_web</title>
+    <link rel="icon" type="image/png" href="images/back.png">
+    <style>
+        .container {
+            position:relative;
+            text-align: center;
+            margin-top: 20%;
+        }
+        input {
+            height:2vh;
+            padding:20px;
+            border-radius:20px;
+            margin-bottom: 20px;
+        }
+        button {
+            height: 50px;
+            width: 100px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+        }
+        body {
+            background-image: url('images/x.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <div class="centered-word">LOGIN!</div>
+    <form id="loginForm" method="post" action="/ch" onsubmit="return validateForm()">
+        <input type="text" name="username" id="username" placeholder="Username">
+        <br>
+        <input type="password" name="password" id="password" placeholder="Password">
+        <br>
+        <button type="submit">Go</button>
+        <div id="error-msg" class="error" style="display: none;">Invalid username or password</div>
+    </form>
+</div>
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "admin9019") {
+            window.location.href = "https://www.python.org/";
+            return false; // Prevent form submission
+        } else {
+            document.getElementById("error-msg").style.display = "block";
+            return false; // Prevent form submission
+        }
+    }
+</script>
+</body>
+</html>
