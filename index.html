@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content='width=device-width, initial-scale=1.0'>
     <title>Charan_web</title>
-    <link rel="icon" type="image/png" href="images/back.png">
+    <link rel="icon" type="image/png" href="images/fevicon.png">
     <style>
         .container {
             position:relative;
@@ -30,7 +30,7 @@
             color: red;
         }
         body {
-            background-image: url('images/x.png');
+            background-image: url('images/presplash.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -39,7 +39,7 @@
 <body>
 <div class='container'>
     <div class="centered-word">LOGIN!</div>
-    <form id="loginForm" method="post" action="/ch" onsubmit="return validateForm()">
+    <form id="loginForm" method="post" action="/ch">
         <input type="text" name="username" id="username" placeholder="Username">
         <br>
         <input type="password" name="password" id="password" placeholder="Password">
@@ -48,19 +48,5 @@
         <div id="error-msg" class="error" style="display: none;">Invalid username or password</div>
     </form>
 </div>
-<script>
-    function validateForm() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        if (username === "admin" && password === "admin9019") {
-            window.location.href = "https://www.python.org/";
-            return false; // Prevent form submission
-        } else {
-            document.getElementById("error-msg").style.display = "block";
-            return false; // Prevent form submission
-        }
-    }
-</script>
 </body>
 </html>
