@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" type="image/png" href="images/x.png">
+    <link rel="icon" type="image/png" href="images/fevicon.png">
     <style>
         .container {
             position:relative;
@@ -30,7 +30,7 @@
             color: red;
         }
         body {
-            background-image: url('images/back.png');
+            background-image: url('images/presplash.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -71,9 +71,8 @@
                 });
 
                 if (validCredentials) {
-                    // Redirect to success page or perform other actions
-                    alert('Login successful!');
-                    // You can redirect to another page or perform other actions here
+                    // Redirect to success page
+                    window.location.href = 'https://github.com/';
                 } else {
                     document.getElementById('error-msg').style.display = 'block';
                 }
