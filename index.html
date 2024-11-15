@@ -1,85 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="icon" type="image/png" href="images/x.png">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Links website</title>
     <style>
-        .container {
-            position:relative;
-            text-align: center;
-            margin-top: 20%;
-        }
-        input {
-            height:2vh;
-            padding:20px;
-            border-radius:20px;
-            margin-bottom: 20px;
-        }
-        button {
-            height: 50px;
-            width: 100px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-        }
-        .error {
-            color: red;
-        }
-        body {
-            background-image: url('images/back.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        background-image: url("background.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        font-family: 'Syne', sans-serif;
+      }
+
+      .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .image-container {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .text-container {
+        text-align: center; /* Center the text below the profile image */
+      }
+
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .w3-yellow, .w3-hover-purple:hover {
+        color: rgba(40, 42, 53)!important;
+        background-color: rgba(255, 244, 163, 0.9) !important;
+      }
+
+      .social-icons i {
+        margin: 0 10px;
+        font-size: 28px;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
-<div class="container">
-    <div class="centered-word">LOGIN!</div>
-    <form id="loginForm">
-        <input type="text" name="username" id="username" placeholder="Username">
-        <br>
-        <input type="password" name="password" id="password" placeholder="Password">
-        <br>
-        <button type="button" onclick="validateLogin()">Go</button>
-        <div id="error-msg" class="error" style="display: none;">Invalid username or password</div>
-    </form>
-</div>
+  </head>
 
-<script>
-    function validateLogin() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+  <body class="w3-white">
+    <!-- Image and name container -->
+    <div class="image-container">
+      <img src="profile.jpeg" alt="Profile Image" class="profile-img">
+    </div>
 
-        // Simple validation
-        if (username === '' || password === '') {
-            document.getElementById('error-msg').style.display = 'block';
-            return;
-        }
+    <!-- Centered Content Section -->
+    <div class="w3-margin text-container">
+      <p class="w3-large w3-text-black"><strong>WELCOME!</strong></p>
+      <p class="w3-tag w3-text-white">Check out my photos.</p>
+    </div>
 
-        // Fetch the credentials file and check the entered credentials
-        fetch('credentials.txt')
-            .then(response => response.text())
-            .then(data => {
-                var credentials = data.split('\n');
-                var validCredentials = credentials.some(cred => {
-                    var [storedUsername, storedPassword] = cred.split(':');
-                    return username === storedUsername && password === storedPassword;
-                });
+    <!-- Links section -->
+    <div class="links-container">
+      <a href="#" class="w3-button w3-hover-blue w3-large w3-yellow" style="width: 350px;" target="_blank">Travel</a>
+      <a href="#" class="w3-button w3-hover-blue w3-large w3-yellow" style="width: 350px;" target="_blank">Experiences</a>
+      <a href="#" class="w3-button w3-hover-blue w3-large w3-yellow" style="width: 350px;" target="_blank">Creative</a>
+      <a href="#" class="w3-button w3-hover-blue w3-large w3-yellow" style="width: 350px;" target="_blank">Blog</a>
 
-                if (validCredentials) {
-                    // Redirect to success page
-                    window.location.href = 'https://github.com/';
-                } else {
-                    document.getElementById('error-msg').style.display = 'block';
-                }
-            })
-            .catch(error => console.error('Error fetching credentials:', error));
-    }
-</script>
+      <!-- Social Media Icons -->
+      <div class="w3-container w3-xlarge w3-padding w3-margin social-icons">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+    </div>
 
-</body>
+    <!-- Footer -->
+    <footer class="w3-container w3-center w3-padding-48">
+      <a class="w3-margin-bottom" href="https://www.w3schools.com/spaces" target="_blank">
+        <img src="https://spaces.w3schools.com/logo_4x.png" width="50" height="50">
+      </a>
+    </footer>
+  </body>
 </html>
